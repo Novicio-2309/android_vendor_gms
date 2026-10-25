@@ -1,19 +1,6 @@
 #
-# Copyright (C) 2018-2019 The Google Pixel3ROM Project
-# Copyright (C) 2024 The hentaiOS Project and its Proprietors
-#
-# Licensed under the Apache License, Version 2.0 (the License);
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#      http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an AS IS BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-#
+# Cleaned Core / Minimal GApps for LineageOS 24.0
+# Derived from RisingOS vendor_gms
 #
 
 # APEX
@@ -22,79 +9,19 @@ DISABLE_DEXPREOPT_CHECK := true
 PRODUCT_PACKAGES += \
     com.google.android.gmssystem.prodvic
 
-# Quick Tap
-TARGET_SUPPORTS_QUICK_TAP ?= true
-ifeq ($(TARGET_SUPPORTS_QUICK_TAP),true)
-PRODUCT_PACKAGES += \
-    quick_tap
-endif
-
-# product/app
-PRODUCT_PACKAGES += \
-    CalculatorGooglePrebuilt_85011599 \
-    Chrome \
-    Chrome-Stub \
-    GoogleContacts \
-    GoogleTTS \
-    LatinIMEGooglePrebuilt \
-    LocationHistoryPrebuilt \
-    MarkupGoogle_v2 \
-    PixelThemesStub2026 \
-    SoundPickerPrebuilt_3.4 \
-    TrichromeLibrary \
-    TrichromeLibrary-Stub \
-    WebViewGoogle \
-    WebViewGoogle-Stub \
-    talkback
-
-# product/priv-app
-PRODUCT_PACKAGES += \
-    AndroidAutoStubPrebuilt \
-    ConfigUpdater \
-    DeviceIntelligenceNetworkPrebuiltAstrea \
-    GoogleDialer \
-    GoogleRestorePrebuilt-v1054408 \
-    KidsSupervisionStub \
-    OdadPrebuilt \
-    PartnerSetupPrebuilt \
-    Phonesky \
-    PrebuiltDeskClockGoogle_76060331 \
-    PrebuiltPixelCoreServices \
-    SettingsIntelligenceGooglePrebuilt \
-    SetupWizardPrebuilt_cd1a \
-    TurboPrebuilt \
-    VelvetGo \
-    VerifierPrebuiltClassic \
-    WellbeingPrebuilt
-
-# system/app
-PRODUCT_PACKAGES += \
-    GoogleExtShared \
-    GooglePrintRecommendationService
-
-# system/priv-app
-PRODUCT_PACKAGES += \
-    DocumentsUIGoogle \
-    GooglePackageInstaller \
-    TagGoogle
-
-# system_ext/app
-PRODUCT_PACKAGES += \
-    EmergencyInfoGoogleNoUi \
-    Flipendo
+# ==========================================
+# CORE GMS & FRAMEWORK (Huwag gagalawin)
+# ==========================================
 
 # system_ext/priv-app
 PRODUCT_PACKAGES += \
-    AvatarPickerGoogle \
-    GoogleFeedback \
-    GoogleServicesFramework \
-    MoseyApp \
-    NexusLauncherRelease \
-    SetupWizardPixelPrebuilt_cd1a \
-    StorageManagerGoogle \
-    WallpaperPickerGoogleRelease
+    GoogleServicesFramework
 
-# PrebuiltGmsCore
+# Phonesky (Google Play Store)
+PRODUCT_PACKAGES += \
+    Phonesky
+
+# PrebuiltGmsCore (Google Play Services & Dynamite Modules)
 PRODUCT_PACKAGES += \
     PrebuiltGmsCoreVic_AdsDynamite \
     PrebuiltGmsCoreVic_CronetDynamite \
@@ -110,6 +37,22 @@ PRODUCT_PACKAGES += \
     TfliteDynamitePrebuilt \
     VisionBarcodePrebuilt
 
+# ==========================================
+# OPTIONAL CORE DEPENDENCIES (Safe & Light)
+# ==========================================
+
+# system/priv-app
+PRODUCT_PACKAGES += \
+    ConfigUpdater \
+    GooglePackageInstaller \
+    TagGoogle
+
+# system/app
+PRODUCT_PACKAGES += \
+    GoogleExtShared \
+    GooglePrintRecommendationService
+
+# Blobs configuration mula sa vendor tree
 $(call inherit-product, vendor/gms/product/blobs/product_blobs.mk)
 $(call inherit-product, vendor/gms/system/blobs/system_blobs.mk)
 $(call inherit-product, vendor/gms/system_ext/blobs/system-ext_blobs.mk)
