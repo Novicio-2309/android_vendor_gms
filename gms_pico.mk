@@ -10,7 +10,7 @@ PRODUCT_PACKAGES += \
     com.google.android.gmssystem.prodvic
 
 # ==========================================
-# CORE GMS & FRAMEWORK (Huwag gagalawin)
+# CORE GMS & FRAMEWORK
 # ==========================================
 
 # system_ext/priv-app
@@ -52,7 +52,7 @@ PRODUCT_PACKAGES += \
     GoogleExtShared \
     GooglePrintRecommendationService
 
-# Blobs configuration mula sa vendor tree
+# Blobs configuration from vendor tree
 $(call inherit-product, vendor/gms/product/blobs/product_blobs.mk)
 $(call inherit-product, vendor/gms/system/blobs/system_blobs.mk)
 $(call inherit-product, vendor/gms/system_ext/blobs/system-ext_blobs.mk)
